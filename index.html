@@ -38,26 +38,52 @@
   };
 
   const COMMANDS = new Map([
-    ['a', { name: 'Admin', url: 'http:://192.168.1.100' }],
-    ['b', { name: 'Dribbble', url: 'https://dribbble.com/shots/recent' }],
-    ['c', { name: 'Calendar', url: 'https://calendar.google.com' }],
+  [
+      'a',
+      {
+        name: 'Admin',
+        suggestions: ['192.168.1.100', '192.168.1.19'],
+        url: 'http://192.168.1.100',
+      },
+    ],
+    ['b', { name: 'Bookmarks', url: 'https://bookmarks.omerduran.dev/dashboard/bookmarks' }],
+    ['c', { name: 'Calendar', url: 'https://calendar.amie.so' }],
+    ['ch', { name: 'ChatGPT', url: 'https://chatgpt.com/?oai-dm=1' }],
     [
       'd',
       {
         name: 'Drive',
-        url: 'https://drive.google.com/drive/u/0/my-drive',
+        url: 'https://mega.nz/fm/mVoh3ATA',
       },
     ],
-    ['f', { name: 'Figma', url: 'https://www.figma.com' }],
-    ['g', { name: 'GitHub', url: 'https://github.com' }],
-    ['k', { name: 'Keep', url: 'https://keep.google.com' }],
+    [
+      'f', 
+      { name: 'Finance', 
+        url: 'https://docs.google.com/spreadsheets/d/18KMsAjQHxFboDjIaOG60fnUS5tgLKLhRgJaVWEKeuK0/edit?pli=1#gid=1324517091',
+        suggestions: ['https://bingx.com/tr-tr/futures/forward/BTCUSDT/' ,'https://www.okx.com/trade-swap/enj-usdt-swap', 'https://www.bybit.com/trade/usdt/ENJUSDT']
+      }
+    ],
+    ['g', { name: 'GitHub', url: 'https://github.com/furkanunsalan' }],
+    [
+      'h', 
+      { name: 'Haliç', 
+        url: 'https://obs.halic.edu.tr/oibs/std/login.aspx',
+        suggestions: ['https://obs.halic.edu.tr/oibs/std/login.aspx' ,'https://huzem.halic.edu.tr/login', 'https://outlook.office.com/mail/',
+        'https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html']
+      }
+    ],
+    ['u', { name: 'Udemy', url: 'https://www.udemy.com/home/my-courses/learning/'}],
+    ['k', { name: 'UptimeKuma', url: 'https://dashboard.uptimerobot.com/monitors' }],
+    ['l', { name: 'Language', url: 'https://duolingo.com',
+      suggestions: ['https://duolingo.com', 'https://eu.rosettastone.com/lp/ebsco/?custid=s8406812']
+     }],
     ['n', { name: 'Notion', url: 'https://www.notion.so' }],
     [
       'p',
       {
-        name: 'Proton',
-        suggestions: ['drive.proton.me/u/0/'],
-        url: 'https://mail.proton.me/u/0/inbox',
+        name: 'Programming',
+        suggestions: ['https://leetcode.com/problemset/', 'https://neetcode.io/practice', 'https://www.youtube.com/@NeetCodeIO/videos'],
+        url: 'https://leetcode.com/problemset/',
       },
     ],
     [
@@ -67,23 +93,33 @@
         suggestions: [
           'r/r/selfhosted',
           'r/r/dataisbeautiful',
-          'r/r/fujix',
+          'r/r/macsetups',
           'r/r/leetcode',
         ],
         url: 'https://reddit.com',
       },
     ],
-    ['s', { name: 'Supabase', url: 'https://supabase.com/dashboard/projects' }],
+    [
+      'ro',
+      {
+        name: 'Roadmap',
+        suggestions: [
+          'https://roadmap.sh/cpp',
+          'https://roadmap.sh/react-native',
+        ],
+        url: 'https://reddit.com',
+      },
+    ],
     ['t', { name: 'Translate', url: 'https://www.deepl.com/translator' }],
     ['v', { name: 'Vercel', url: 'https://vercel.com/dashboard' }],
     [
       'x',
       {
-        name: 'xvvvyz',
+        name: 'Twitter - X',
         suggestions: [
-          'jelly.xvvvyz.xyz',
-          'torrent.xvvvyz.xyz',
-          'proxy.xvvvyz.xyz',
+          'https://x.com/ademilter',
+          'https://x.com/batubozkan',
+          'https://x.com/NFFormula',
         ],
         url: 'https://pomodoro.xvvvyz.xyz',
       },
@@ -101,8 +137,7 @@
       {
         name: 'localhost',
         searchTemplate: ':{}',
-        suggestions: ['0 54323', '0 54324'],
-        url: 'http://localhost:3000',
+        url: 'http://localhost:',
       },
     ],
   ]);
