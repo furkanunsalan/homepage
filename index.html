@@ -31,114 +31,137 @@
 
 <script>
   const CONFIG = {
-    commandPathDelimiter: '/',
-    commandSearchDelimiter: ' ',
-    defaultSearchTemplate: 'https://duckduckgo.com/?q={}',
+    commandPathDelimiter: "/",
+    commandSearchDelimiter: " ",
+    defaultSearchTemplate: "https://duckduckgo.com/?q={}",
     openLinksInNewTab: false,
     suggestionLimit: 4,
   };
 
   const COMMANDS = new Map([
-  [
-      'a',
-      {
-        name: 'Admin',
-        suggestions: ['192.168.1.100', '192.168.1.19'],
-        url: 'http://192.168.1.100',
-      },
-    ],
-    ['b', { name: 'Bookmarks', url: 'https://bookmarks.omerduran.dev/dashboard/bookmarks' }],
-    ['c', { name: 'Calendar', url: 'https://calendar.amie.so' }],
-    ['ch', { name: 'ChatGPT', url: 'https://chatgpt.com/?oai-dm=1' }],
     [
-      'd',
+      "a",
       {
-        name: 'Drive',
-        url: 'https://mega.nz/fm/mVoh3ATA',
+        name: "Admin",
+        suggestions: ["192.168.1.100", "192.168.1.19"],
+        url: "http://192.168.1.100",
       },
     ],
     [
-      'f', 
-      { name: 'Finance', 
-        url: 'https://docs.google.com/spreadsheets/d/18KMsAjQHxFboDjIaOG60fnUS5tgLKLhRgJaVWEKeuK0/edit?pli=1#gid=1324517091',
-        suggestions: ['https://bingx.com/tr-tr/futures/forward/BTCUSDT/' ,'https://www.okx.com/trade-swap/enj-usdt-swap', 'https://www.bybit.com/trade/usdt/ENJUSDT']
-      }
-    ],
-    ['g', { name: 'GitHub', url: 'https://github.com/furkanunsalan' }],
-    [
-      'h', 
-      { name: 'Haliç', 
-        url: 'https://obs.halic.edu.tr/oibs/std/login.aspx',
-        suggestions: ['https://obs.halic.edu.tr/oibs/std/login.aspx' ,'https://huzem.halic.edu.tr/login', 'https://outlook.office.com/mail/',
-        'https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html']
-      }
-    ],
-    ['u', { name: 'Udemy', url: 'https://www.udemy.com/home/my-courses/learning/'}],
-    ['k', { name: 'UptimeKuma', url: 'https://dashboard.uptimerobot.com/monitors' }],
-    ['l', { name: 'Language', url: 'https://duolingo.com',
-      suggestions: ['https://duolingo.com', 'https://eu.rosettastone.com/lp/ebsco/?custid=s8406812']
-     }],
-    ['n', { name: 'Notion', url: 'https://www.notion.so' }],
-    [
-      'p',
+      "b",
       {
-        name: 'Programming',
-        suggestions: ['https://leetcode.com/problemset/', 'https://neetcode.io/practice', 'https://www.youtube.com/@NeetCodeIO/videos'],
-        url: 'https://leetcode.com/problemset/',
+        name: "Bookmarks",
+        url: "https://bookmarks.omerduran.dev/dashboard/bookmarks",
+      },
+    ],
+    ["c", { name: "Calendar", url: "https://calendar.amie.so" }],
+    ["ch", { name: "ChatGPT", url: "https://chatgpt.com/?oai-dm=1" }],
+    [
+      "d",
+      {
+        name: "Drive",
+        url: "https://mega.nz/fm/mVoh3ATA",
       },
     ],
     [
-      'r',
+      "f",
       {
-        name: 'Reddit',
+        name: "Finance",
+        url: "https://docs.google.com/spreadsheets/d/18KMsAjQHxFboDjIaOG60fnUS5tgLKLhRgJaVWEKeuK0/edit?pli=1#gid=1324517091",
         suggestions: [
-          'r/r/selfhosted',
-          'r/r/dataisbeautiful',
-          'r/r/macsetups',
-          'r/r/leetcode',
+          "https://bingx.com/tr-tr/futures/forward/BTCUSDT/",
+          "https://www.okx.com/trade-swap/enj-usdt-swap",
+          "https://www.bybit.com/trade/usdt/ENJUSDT",
         ],
-        url: 'https://reddit.com',
       },
     ],
+    ["g", { name: "GitHub", url: "https://github.com/furkanunsalan" }],
     [
-      'ro',
+      "h",
       {
-        name: 'Roadmap',
+        name: "Haliç",
+        url: "https://obs.halic.edu.tr/oibs/std/login.aspx",
         suggestions: [
-          'https://roadmap.sh/cpp',
-          'https://roadmap.sh/react-native',
+          "https://obs.halic.edu.tr/oibs/std/login.aspx",
+          "https://huzem.halic.edu.tr/login",
+          "https://outlook.office.com/mail/",
+          "https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html",
         ],
-        url: 'https://reddit.com',
       },
     ],
-    ['t', { name: 'Translate', url: 'https://www.deepl.com/translator' }],
-    ['v', { name: 'Vercel', url: 'https://vercel.com/dashboard' }],
     [
-      'x',
+      "u",
+      { name: "Udemy", url: "https://www.udemy.com/home/my-courses/learning/" },
+    ],
+    [
+      "k",
+      { name: "UptimeKuma", url: "https://dashboard.uptimerobot.com/monitors" },
+    ],
+    [
+      "l",
       {
-        name: 'Twitter - X',
+        name: "Language",
+        url: "https://duolingo.com",
         suggestions: [
-          'https://x.com/ademilter',
-          'https://x.com/batubozkan',
-          'https://x.com/NFFormula',
+          "https://duolingo.com",
+          "https://eu.rosettastone.com/lp/ebsco/?custid=s8406812",
         ],
-        url: 'https://pomodoro.xvvvyz.xyz',
+      },
+    ],
+    ["n", { name: "Notion", url: "https://www.notion.so" }],
+    [
+      "p",
+      {
+        name: "Programming",
+        suggestions: [
+          "https://leetcode.com/problemset/",
+          "https://neetcode.io/practice",
+          "https://www.youtube.com/@NeetCodeIO/videos",
+        ],
+        url: "https://leetcode.com/problemset/",
       },
     ],
     [
-      'y',
+      "r",
       {
-        name: 'YouTube',
-        searchTemplate: '/results?search_query={}',
-        url: 'https://youtube.com/feed/subscriptions',
+        name: "Reddit",
+        suggestions: [
+          "r/r/selfhosted",
+          "r/r/dataisbeautiful",
+          "r/r/macsetups",
+          "r/r/leetcode",
+        ],
+        url: "https://reddit.com",
       },
     ],
     [
-      '0',
+      "ro",
       {
-        name: 'localhost',
-        searchTemplate: ':{}',
-        url: 'http://localhost:',
+        name: "Roadmap",
+        suggestions: [
+          "https://roadmap.sh/cpp",
+          "https://roadmap.sh/react-native",
+        ],
+        url: "https://reddit.com",
+      },
+    ],
+    ["t", { name: "Translate", url: "https://www.deepl.com/translator" }],
+    ["to", { name: "To-Do", url: "https://app.any.do/tasks/next-seven-days" }],
+    ["v", { name: "Vercel", url: "https://vercel.com/dashboard" }],
+    [
+      "y",
+      {
+        name: "YouTube",
+        searchTemplate: "/results?search_query={}",
+        url: "https://youtube.com/feed/subscriptions",
+      },
+    ],
+    [
+      "0",
+      {
+        name: "localhost",
+        searchTemplate: ":{}",
+        url: "http://localhost:",
       },
     ],
   ]);
@@ -168,7 +191,7 @@
 
     .command::after {
       background: var(--color-text-subtle);
-      content: ' ';
+      content: " ";
       inset: 1px;
       opacity: 0.05;
       position: absolute;
@@ -226,20 +249,20 @@
   class Commands extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
-      const template = document.getElementById('commands-template');
+      this.attachShadow({ mode: "open" });
+      const template = document.getElementById("commands-template");
       const clone = template.content.cloneNode(true);
-      const commands = clone.querySelector('.commands');
-      const commandTemplate = document.getElementById('command-template');
+      const commands = clone.querySelector(".commands");
+      const commandTemplate = document.getElementById("command-template");
 
       for (const [key, { name, url }] of COMMANDS.entries()) {
         if (!name || !url) continue;
         const clone = commandTemplate.content.cloneNode(true);
-        const command = clone.querySelector('.command');
+        const command = clone.querySelector(".command");
         command.href = url;
-        if (CONFIG.openLinksInNewTab) command.target = '_blank';
-        clone.querySelector('.key').innerText = key;
-        clone.querySelector('.name').innerText = name;
+        if (CONFIG.openLinksInNewTab) command.target = "_blank";
+        clone.querySelector(".key").innerText = key;
+        clone.querySelector(".name").innerText = name;
         commands.append(clone);
       }
 
@@ -247,7 +270,7 @@
     }
   }
 
-  customElements.define('commands-component', Commands);
+  customElements.define("commands-component", Commands);
 </script>
 
 <template id="search-template">
@@ -323,7 +346,7 @@
     .suggestion::before {
       background-color: var(--color-text);
       border-radius: calc(var(--border-radius) / 5);
-      content: ' ';
+      content: " ";
       inset: calc(var(--space) / 1.5) calc(var(--space) / 3);
       opacity: 0;
       position: absolute;
@@ -379,22 +402,22 @@
 
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
-      const template = document.getElementById('search-template');
+      this.attachShadow({ mode: "open" });
+      const template = document.getElementById("search-template");
       const clone = template.content.cloneNode(true);
-      this.#dialog = clone.querySelector('.dialog');
-      this.#form = clone.querySelector('.form');
-      this.#input = clone.querySelector('.input');
-      this.#suggestions = clone.querySelector('.suggestions');
-      this.#form.addEventListener('submit', this.#onSubmit, false);
-      this.#input.addEventListener('input', this.#onInput);
-      this.#suggestions.addEventListener('click', this.#onSuggestionClick);
-      document.addEventListener('keydown', this.#onKeydown);
+      this.#dialog = clone.querySelector(".dialog");
+      this.#form = clone.querySelector(".form");
+      this.#input = clone.querySelector(".input");
+      this.#suggestions = clone.querySelector(".suggestions");
+      this.#form.addEventListener("submit", this.#onSubmit, false);
+      this.#input.addEventListener("input", this.#onInput);
+      this.#suggestions.addEventListener("click", this.#onSuggestionClick);
+      document.addEventListener("keydown", this.#onKeydown);
       this.shadowRoot.append(clone);
     }
 
     static #escapeRegexCharacters(s) {
-      return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+      return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
     }
 
     static #fetchDuckDuckGoSuggestions(search) {
@@ -410,8 +433,8 @@
           resolve(suggestions);
         };
 
-        const script = document.createElement('script');
-        document.querySelector('head').appendChild(script);
+        const script = document.createElement("script");
+        document.querySelector("head").appendChild(script);
         script.src = `https://duckduckgo.com/ac/?callback=autocompleteCallback&q=${search}`;
         script.onload = script.remove;
       });
@@ -472,7 +495,7 @@
     };
 
     static #splitUrl(url) {
-      const parser = document.createElement('a');
+      const parser = document.createElement("a");
       parser.href = url;
       const baseUrl = `${parser.protocol}//${parser.hostname}`;
       const rest = `${parser.pathname}${parser.search}`;
@@ -480,16 +503,16 @@
     }
 
     #close() {
-      this.#input.value = '';
+      this.#input.value = "";
       this.#input.blur();
       this.#dialog.close();
-      this.#suggestions.innerHTML = '';
+      this.#suggestions.innerHTML = "";
     }
 
     #execute(query) {
       const { url } = Search.#parseQuery(query);
-      const target = CONFIG.openLinksInNewTab ? '_blank' : '_self';
-      window.open(url, target, 'noopener noreferrer');
+      const target = CONFIG.openLinksInNewTab ? "_blank" : "_self";
+      window.open(url, target, "noopener noreferrer");
       this.#close();
     }
 
@@ -505,7 +528,7 @@
       }
 
       const next = this.#suggestions.children[nextIndex];
-      if (next) next.querySelector('.suggestion').focus();
+      if (next) next.querySelector(".suggestion").focus();
       else this.#input.focus();
     }
 
@@ -525,7 +548,7 @@
         suggestions = suggestions.concat(
           oq.splitBy
             ? res.map((search) => `${oq.key}${oq.splitBy}${search}`)
-            : res
+            : res,
         );
       }
 
@@ -548,15 +571,15 @@
         return;
       }
 
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         this.#close();
         return;
       }
 
-      const alt = e.altKey ? 'alt-' : '';
-      const ctrl = e.ctrlKey ? 'ctrl-' : '';
-      const meta = e.metaKey ? 'meta-' : '';
-      const shift = e.shiftKey ? 'shift-' : '';
+      const alt = e.altKey ? "alt-" : "";
+      const ctrl = e.ctrlKey ? "ctrl-" : "";
+      const meta = e.metaKey ? "meta-" : "";
+      const shift = e.shiftKey ? "shift-" : "";
       const modifierPrefixedKey = `${alt}${ctrl}${meta}${shift}${e.key}`;
 
       if (/^(ArrowDown|Tab|ctrl-n)$/.test(modifierPrefixedKey)) {
@@ -576,33 +599,33 @@
     };
 
     #onSuggestionClick = (e) => {
-      const ref = e.target.closest('.suggestion');
+      const ref = e.target.closest(".suggestion");
       if (!ref) return;
       this.#execute(ref.dataset.suggestion);
     };
 
     #renderSuggestions(suggestions, query) {
-      this.#suggestions.innerHTML = '';
+      this.#suggestions.innerHTML = "";
       const sliced = suggestions.slice(0, CONFIG.suggestionLimit);
-      const template = document.getElementById('suggestion-template');
+      const template = document.getElementById("suggestion-template");
 
       for (const [index, suggestion] of sliced.entries()) {
         const clone = template.content.cloneNode(true);
-        const ref = clone.querySelector('.suggestion');
+        const ref = clone.querySelector(".suggestion");
         ref.dataset.index = index;
         ref.dataset.suggestion = suggestion;
         const escapedQuery = Search.#escapeRegexCharacters(query);
-        const matched = suggestion.match(new RegExp(escapedQuery, 'i'));
+        const matched = suggestion.match(new RegExp(escapedQuery, "i"));
 
         if (matched) {
-          const template = document.getElementById('match-template');
+          const template = document.getElementById("match-template");
           const clone = template.content.cloneNode(true);
-          const matchRef = clone.querySelector('.match');
+          const matchRef = clone.querySelector(".match");
           const pre = suggestion.slice(0, matched.index);
           const post = suggestion.slice(matched.index + matched[0].length);
           matchRef.innerText = matched[0];
-          matchRef.insertAdjacentHTML('beforebegin', pre);
-          matchRef.insertAdjacentHTML('afterend', post);
+          matchRef.insertAdjacentHTML("beforebegin", pre);
+          matchRef.insertAdjacentHTML("afterend", post);
           ref.append(clone);
         } else {
           ref.innerText = suggestion;
@@ -613,7 +636,7 @@
     }
   }
 
-  customElements.define('search-component', Search);
+  customElements.define("search-component", Search);
 </script>
 
 <style>
