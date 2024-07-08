@@ -60,9 +60,22 @@
     [
       "gt",
       {
-        searchTemplate: "?sl={}&tl={}&text={}&op=translate",
+        searchTemplate: "?sl=en&tl=tr&text={}&op=translate",
         url: "https://translate.google.com/"
       }
+    ],
+    [
+      "r",
+      {
+        searchTemplate: "/search/?q={}&type=link",
+        suggestions: [
+          "r/r/selfhosted",
+          "r/r/dataisbeautiful",
+          "r/r/macsetups",
+          "r/r/leetcode",
+        ],
+        url: "https://reddit.com",
+      },
     ],
     // -------------------------------------
     [
@@ -80,7 +93,14 @@
         url: "https://app.raindrop.io/my/0",
       },
     ],
-    ["c", { name: "ChatGPT", url: "https://chatgpt.com/?oai-dm=1" }],
+    [
+      "c", 
+      { 
+        name: "ChatGPT", 
+        url: "https://chatgpt.com/",
+        searchTemplate: "?model=gpt-4&q={}"
+      }
+    ],
     [
       "d",
       {
@@ -144,19 +164,6 @@
           "https://www.youtube.com/@NeetCodeIO/videos",
         ],
         url: "https://leetcode.com/problemset/",
-      },
-    ],
-    [
-      "r",
-      {
-        searchTemplate: "/search/q={}",
-        suggestions: [
-          "r/r/selfhosted",
-          "r/r/dataisbeautiful",
-          "r/r/macsetups",
-          "r/r/leetcode",
-        ],
-        url: "https://reddit.com",
       },
     ],
     [
