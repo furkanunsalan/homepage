@@ -39,6 +39,32 @@
   };
 
   const COMMANDS = new Map([
+    // --- COMMANDS NOT SHOWN IN THE GRID ---
+    [
+      "3d",
+      {
+        url: "https://thingiverse.com",
+        suggestions: [
+          "https://thingiverse.com",
+          "https://makerworld.com/en",
+        ],
+      },
+    ],
+    [
+      "dt",
+      {
+        searchTemplate: "/translator#en/tr/",
+        url: "https://www.deepl.com/translator/en"
+      }
+    ],
+    [
+      "gt",
+      {
+        searchTemplate: "?sl={}&tl={}&text={}&op=translate",
+        url: "https://translate.google.com/"
+      }
+    ],
+    // -------------------------------------
     [
       "a",
       {
@@ -54,8 +80,7 @@
         url: "https://app.raindrop.io/my/0",
       },
     ],
-    // ["c", { name: "Calendar", url: "https://calendar.amie.so" }],
-    ["ch", { name: "ChatGPT", url: "https://chatgpt.com/?oai-dm=1" }],
+    ["c", { name: "ChatGPT", url: "https://chatgpt.com/?oai-dm=1" }],
     [
       "d",
       {
@@ -124,7 +149,6 @@
     [
       "r",
       {
-        name: "Reddit",
         searchTemplate: "/search/q={}",
         suggestions: [
           "r/r/selfhosted",
@@ -146,8 +170,15 @@
         url: "https://roadmap.sh",
       },
     ],
-    ["t", { name: "Translate", url: "https://www.deepl.com/translator" }],
-    ["to", { name: "To-Do", url: "https://app.any.do/tasks/next-seven-days" }],
+    [
+      "t", 
+      { 
+        url: "https://www.deepl.com/translator" ,
+        suggestions: [
+          ""
+        ]
+      }
+    ],
     ["v", { name: "Vercel", url: "https://vercel.com/dashboard" }],
     [
       "y",
