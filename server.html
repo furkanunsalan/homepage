@@ -39,168 +39,18 @@
   };
 
   const COMMANDS = new Map([
-    // --- COMMANDS NOT SHOWN IN THE GRID ---
     [
-      "3d",
+      "1",
       {
-        url: "https://thingiverse.com",
-        suggestions: [
-          "https://thingiverse.com",
-          "https://makerworld.com/en",
-        ],
-      },
-    ],
-    [
-      "dt",
-      {
-        searchTemplate: "/translator#en/tr/",
-        url: "https://www.deepl.com/translator/en"
-      }
-    ],
-    [
-      "gt",
-      {
-        searchTemplate: "?sl=en&tl=tr&text={}&op=translate",
-        url: "https://translate.google.com/"
-      }
-    ],
-    [
-      "r",
-      {
-        searchTemplate: "/search/?q={}&type=link",
-        suggestions: [
-          "r/r/selfhosted",
-          "r/r/dataisbeautiful",
-          "r/r/macsetups",
-          "r/r/leetcode",
-        ],
-        url: "https://reddit.com",
-      },
-    ],
-    // -------------------------------------
-    [
-      "a",
-      {
-        name: "Admin",
-        suggestions: ["192.168.1.100", "192.168.1.19"],
+        name: "Truenas",
         url: "http://192.168.1.100",
       },
     ],
     [
-      "b",
+      "2",
       {
-        name: "Bookmarks",
-        url: "https://app.raindrop.io/my/0",
-      },
-    ],
-    [
-      "c", 
-      { 
-        name: "ChatGPT", 
-        url: "https://chatgpt.com/",
-        searchTemplate: "?model=gpt-4&q={}"
-      }
-    ],
-    [
-      "d",
-      {
-        name: "Drive",
-        url: "https://mega.nz/fm/mVoh3ATA",
-      },
-    ],
-    [
-      "f",
-      {
-        name: "Finance",
-        url: "https://docs.google.com/spreadsheets/d/18KMsAjQHxFboDjIaOG60fnUS5tgLKLhRgJaVWEKeuK0/edit?pli=1#gid=1324517091",
-        suggestions: [
-          "https://bingx.com/tr-tr/futures/forward/BTCUSDT/",
-          "https://www.okx.com/trade-swap/enj-usdt-swap",
-          "https://www.bybit.com/trade/usdt/ENJUSDT",
-        ],
-      },
-    ],
-    ["g", { name: "GitHub", url: "https://github.com/furkanunsalan" }],
-    [
-      "h",
-      {
-        name: "Haliç",
-        url: "https://obs.halic.edu.tr/oibs/std/login.aspx",
-        suggestions: [
-          "https://obs.halic.edu.tr/oibs/std/login.aspx",
-          "https://huzem.halic.edu.tr/login",
-          "https://outlook.office.com/mail/",
-          "https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html",
-        ],
-      },
-    ],
-    [
-      "u",
-      { name: "Udemy", url: "https://www.udemy.com/home/my-courses/learning/" },
-    ],
-    [
-      "k",
-      { name: "UptimeKuma", url: "https://dashboard.uptimerobot.com/monitors" },
-    ],
-    [
-      "l",
-      {
-        name: "Language",
-        url: "https://duolingo.com",
-        suggestions: [
-          "https://duolingo.com",
-          "https://eu.rosettastone.com/lp/ebsco/?custid=s8406812",
-        ],
-      },
-    ],
-    ["s", { name: "Server", url: "/server.html" }],
-    [
-      "p",
-      {
-        name: "Programming",
-        suggestions: [
-          "https://leetcode.com/problemset/",
-          "https://neetcode.io/practice",
-          "https://www.youtube.com/@NeetCodeIO/videos",
-        ],
-        url: "https://leetcode.com/problemset/",
-      },
-    ],
-    [
-      "ro",
-      {
-        name: "Roadmap",
-        suggestions: [
-          "https://roadmap.sh/cpp",
-          "https://roadmap.sh/react-native",
-        ],
-        url: "https://roadmap.sh",
-      },
-    ],
-    [
-      "t", 
-      { 
-        url: "https://www.deepl.com/translator" ,
-        suggestions: [
-          ""
-        ]
-      }
-    ],
-    ["v", { name: "Vercel", url: "https://vercel.com/dashboard" }],
-    [
-      "y",
-      {
-        name: "YouTube",
-        searchTemplate: "/results?search_query={}",
-        url: "https://youtube.com/feed/subscriptions",
-      },
-    ],
-    [
-      "0",
-      {
-        name: "localhost",
-        searchTemplate: ":{}",
-        url: "http://localhost:",
+        name: "OctoPi",
+        url: "http://192.168.1.19",
       },
     ],
   ]);
