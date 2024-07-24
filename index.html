@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <meta charset="utf-8" />
 <meta name="color-scheme" content="dark light" />
 <meta name="robots" content="noindex" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>~</title>
+<link rel="icon" type="image/png" href="tilde_icon.png?v=1234" />
 
 <style>
   :root {
@@ -30,14 +31,13 @@
 
 <script>
   const CONFIG = {
-    commandPathDelimiter: '/',
-    commandSearchDelimiter: ' ',
-    defaultSearchTemplate: 'https://duckduckgo.com/?q={}',
+    commandPathDelimiter: "/",
+    commandSearchDelimiter: " ",
+    defaultSearchTemplate: "https://duckduckgo.com/?q={}",
     openLinksInNewTab: false,
     suggestionLimit: 4,
   };
 
-  // prettier-ignore
   const COMMANDS = new Map([
     // --- COMMANDS NOT SHOWN IN THE GRID ---
     [
@@ -45,18 +45,9 @@
       {
         url: "https://thingiverse.com",
         suggestions: [
-          {
-            name: 'Thingiverse',
-            url: 'https://thingiverse.com'
-          },
-          {
-            name: 'MakerWorld',
-            url: 'https://makerworld.com/en'
-          },
-          {
-            name: 'Thangs',
-            url: 'https://thangs.com/'
-          }
+          "https://thingiverse.com",
+          "https://makerworld.com/en",
+          "https://thangs.com/",
         ],
       },
     ],
@@ -134,10 +125,7 @@
      { 
        name: "GitHub", url: "https://github.com/furkanunsalan",
        suggestions: [
-        {
-          name: 'Ömer Gitea',
-          url: 'https://gitea.omerduran.dev'
-        }
+          "https://gitea.omerduran.dev"
         ],
      }
     ],
@@ -147,22 +135,10 @@
         name: "Haliç",
         url: "https://obs.halic.edu.tr/oibs/std/login.aspx",
         suggestions: [
-          {
-            name: 'OBS',
-            url: 'https://obs.halic.edu.tr/oibs/std/login.aspx'
-          },
-          {
-            name: 'Haliç X',
-            url: 'https://huzem.halic.edu.tr/login'
-          },
-          {
-            name: 'EDU Mail',
-            url: 'https://outlook.office.com/mail/'
-          },
-          {
-            name: 'VM',
-            url: 'https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html'
-          }
+          "https://obs.halic.edu.tr/oibs/std/login.aspx",
+          "https://huzem.halic.edu.tr/login",
+          "https://outlook.office.com/mail/",
+          "https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html",
         ],
       },
     ],
@@ -191,18 +167,9 @@
       {
         name: "Programming",
         suggestions: [
-          {
-            name: 'Leetcode',
-            url: 'https://leetcode.com/problemset/'
-          },
-          {
-            name: 'NeetCode',
-            url: 'https://neetcode.io/practice'
-          },
-          {
-            name: 'Neetcode YT',
-            url: 'https://www.youtube.com/@NeetCodeIO/videos'
-          }
+          "https://leetcode.com/problemset/",
+          "https://neetcode.io/practice",
+          "https://www.youtube.com/@NeetCodeIO/videos",
         ],
         url: "https://leetcode.com/problemset/",
       },
@@ -212,14 +179,8 @@
       {
         name: "Roadmap",
         suggestions: [
-          {
-            name: "C++",
-            url: "https://roadmap.sh/cpp"
-          },
-          {
-            name: 'React Native',
-            url: 'https://roadmap.sh/react-native'
-          }
+          "https://roadmap.sh/cpp",
+          "https://roadmap.sh/react-native",
         ],
         url: "https://roadmap.sh",
       },
@@ -228,6 +189,9 @@
       "t", 
       { 
         url: "https://www.deepl.com/translator" ,
+        suggestions: [
+          ""
+        ]
       }
     ],
     ["v", { name: "Vercel", url: "https://vercel.com/dashboard" }],
@@ -248,25 +212,6 @@
       },
     ],
   ]);
-
-  // Usage of suggestions with names
-
-  /* const COMMANDS = new Map([
-    [
-      'g',
-      {
-        url: 'https://www.google.com/search?q={}',
-        searchTemplate: '/search?q={}',
-        suggestions: [
-          { name: 'Google Search', url: 'https://www.google.com' },
-          { name: 'Google Images', url: 'https://images.google.com' },
-          { name: 'Google Maps', url: 'https://maps.google.com' },
-        ],
-      },
-    ],
-
-    // Add more command entries as needed
-  ]); */
 </script>
 
 <template id="commands-template">
@@ -293,7 +238,7 @@
 
     .command::after {
       background: var(--color-text-subtle);
-      content: ' ';
+      content: " ";
       inset: 1px;
       opacity: 0.05;
       position: absolute;
@@ -326,10 +271,10 @@
       }
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: 900px) {
       .commands {
         columns: 4;
-        max-width: 55rem;
+        max-width: 45rem;
       }
     }
   </style>
@@ -351,20 +296,20 @@
   class Commands extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
-      const template = document.getElementById('commands-template');
+      this.attachShadow({ mode: "open" });
+      const template = document.getElementById("commands-template");
       const clone = template.content.cloneNode(true);
-      const commands = clone.querySelector('.commands');
-      const commandTemplate = document.getElementById('command-template');
+      const commands = clone.querySelector(".commands");
+      const commandTemplate = document.getElementById("command-template");
 
       for (const [key, { name, url }] of COMMANDS.entries()) {
         if (!name || !url) continue;
         const clone = commandTemplate.content.cloneNode(true);
-        const command = clone.querySelector('.command');
+        const command = clone.querySelector(".command");
         command.href = url;
-        if (CONFIG.openLinksInNewTab) command.target = '_blank';
-        clone.querySelector('.key').innerText = key;
-        clone.querySelector('.name').innerText = name ? name : url;
+        if (CONFIG.openLinksInNewTab) command.target = "_blank";
+        clone.querySelector(".key").innerText = key;
+        clone.querySelector(".name").innerText = name;
         commands.append(clone);
       }
 
@@ -372,7 +317,7 @@
     }
   }
 
-  customElements.define('commands-component', Commands);
+  customElements.define("commands-component", Commands);
 </script>
 
 <template id="search-template">
@@ -448,7 +393,7 @@
     .suggestion::before {
       background-color: var(--color-text);
       border-radius: calc(var(--border-radius) / 5);
-      content: ' ';
+      content: " ";
       inset: calc(var(--space) / 1.5) calc(var(--space) / 3);
       opacity: 0;
       position: absolute;
@@ -504,22 +449,22 @@
 
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
-      const template = document.getElementById('search-template');
+      this.attachShadow({ mode: "open" });
+      const template = document.getElementById("search-template");
       const clone = template.content.cloneNode(true);
-      this.#dialog = clone.querySelector('.dialog');
-      this.#form = clone.querySelector('.form');
-      this.#input = clone.querySelector('.input');
-      this.#suggestions = clone.querySelector('.suggestions');
-      this.#form.addEventListener('submit', this.#onSubmit, false);
-      this.#input.addEventListener('input', this.#onInput);
-      this.#suggestions.addEventListener('click', this.#onSuggestionClick);
-      document.addEventListener('keydown', this.#onKeydown);
+      this.#dialog = clone.querySelector(".dialog");
+      this.#form = clone.querySelector(".form");
+      this.#input = clone.querySelector(".input");
+      this.#suggestions = clone.querySelector(".suggestions");
+      this.#form.addEventListener("submit", this.#onSubmit, false);
+      this.#input.addEventListener("input", this.#onInput);
+      this.#suggestions.addEventListener("click", this.#onSuggestionClick);
+      document.addEventListener("keydown", this.#onKeydown);
       this.shadowRoot.append(clone);
     }
 
     static #escapeRegexCharacters(s) {
-      return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+      return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
     }
 
     static #fetchDuckDuckGoSuggestions(search) {
@@ -529,24 +474,25 @@
 
           for (const item of res) {
             if (item.phrase === search.toLowerCase()) continue;
-            suggestions.push({
-              name: item.phrase,
-              url: `https://duckduckgo.com/?q=${item.phrase}`,
-            });
+            suggestions.push(item.phrase);
           }
 
           resolve(suggestions);
         };
 
-        const script = document.createElement('script');
-        document.querySelector('head').appendChild(script);
+        const script = document.createElement("script");
+        document.querySelector("head").appendChild(script);
         script.src = `https://duckduckgo.com/ac/?callback=autocompleteCallback&q=${search}`;
         script.onload = script.remove;
       });
     }
 
-    static #formatSearchUrl(template, search) {
-      return template.replace(/{}/g, encodeURIComponent(search));
+    static #formatSearchUrl(url, searchPath, search) {
+      if (!searchPath) return url;
+      const [baseUrl] = Search.#splitUrl(url);
+      const urlQuery = encodeURIComponent(search);
+      searchPath = searchPath.replace(/{}/g, urlQuery);
+      return baseUrl + searchPath;
     }
 
     static #hasProtocol(s) {
@@ -566,18 +512,17 @@
       }
 
       if (COMMANDS.has(query)) {
-        const { key, url } = COMMANDS.get(query);
-        return { key, query, url };
+        const { command, key, url } = COMMANDS.get(query);
+        return command ? Search.#parseQuery(command) : { key, query, url };
       }
 
       let splitBy = CONFIG.commandSearchDelimiter;
       const [searchKey, rawSearch] = query.split(new RegExp(`${splitBy}(.*)`));
 
       if (COMMANDS.has(searchKey)) {
-        const command = COMMANDS.get(searchKey);
-        const template = new URL(command.searchTemplate ?? '', command.url);
+        const { searchTemplate, url: base } = COMMANDS.get(searchKey);
         const search = rawSearch.trim();
-        const url = Search.#formatSearchUrl(decodeURI(template.href), search);
+        const url = Search.#formatSearchUrl(base, searchTemplate, search);
         return { key: searchKey, query, search, splitBy, url };
       }
 
@@ -585,25 +530,36 @@
       const [pathKey, path] = query.split(new RegExp(`${splitBy}(.*)`));
 
       if (COMMANDS.has(pathKey)) {
-        const command = COMMANDS.get(pathKey);
-        const url = `${new URL(command.url).origin}/${path}`;
+        const { url: base } = COMMANDS.get(pathKey);
+        const [baseUrl] = Search.#splitUrl(base);
+        const url = `${baseUrl}/${path}`;
         return { key: pathKey, path, query, splitBy, url };
       }
 
-      const url = Search.#formatSearchUrl(CONFIG.defaultSearchTemplate, query);
+      const [baseUrl, rest] = Search.#splitUrl(CONFIG.defaultSearchTemplate);
+      const url = Search.#formatSearchUrl(baseUrl, rest, query);
       return { query, search: query, url };
     };
 
+    static #splitUrl(url) {
+      const parser = document.createElement("a");
+      parser.href = url;
+      const baseUrl = `${parser.protocol}//${parser.hostname}`;
+      const rest = `${parser.pathname}${parser.search}`;
+      return [baseUrl, rest];
+    }
+
     #close() {
-      this.#input.value = '';
+      this.#input.value = "";
       this.#input.blur();
       this.#dialog.close();
-      this.#suggestions.innerHTML = '';
+      this.#suggestions.innerHTML = "";
     }
 
     #execute(query) {
-      const target = CONFIG.openLinksInNewTab ? '_blank' : '_self';
-      window.open(Search.#parseQuery(query).url, target, 'noopener noreferrer');
+      const { url } = Search.#parseQuery(query);
+      const target = CONFIG.openLinksInNewTab ? "_blank" : "_self";
+      window.open(url, target, "noopener noreferrer");
       this.#close();
     }
 
@@ -619,7 +575,7 @@
       }
 
       const next = this.#suggestions.children[nextIndex];
-      if (next) next.querySelector('.suggestion').focus();
+      if (next) next.querySelector(".suggestion").focus();
       else this.#input.focus();
     }
 
@@ -638,11 +594,8 @@
 
         suggestions = suggestions.concat(
           oq.splitBy
-            ? res.map((search) => ({
-                name: `${oq.key}${oq.splitBy}${search}`,
-                url: `https://duckduckgo.com/?q=${search}`,
-              }))
-            : res
+            ? res.map((search) => `${oq.key}${oq.splitBy}${search}`)
+            : res,
         );
       }
 
@@ -665,15 +618,15 @@
         return;
       }
 
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         this.#close();
         return;
       }
 
-      const alt = e.altKey ? 'alt-' : '';
-      const ctrl = e.ctrlKey ? 'ctrl-' : '';
-      const meta = e.metaKey ? 'meta-' : '';
-      const shift = e.shiftKey ? 'shift-' : '';
+      const alt = e.altKey ? "alt-" : "";
+      const ctrl = e.ctrlKey ? "ctrl-" : "";
+      const meta = e.metaKey ? "meta-" : "";
+      const shift = e.shiftKey ? "shift-" : "";
       const modifierPrefixedKey = `${alt}${ctrl}${meta}${shift}${e.key}`;
 
       if (/^(ArrowDown|Tab|ctrl-n)$/.test(modifierPrefixedKey)) {
@@ -693,28 +646,44 @@
     };
 
     #onSuggestionClick = (e) => {
-      const ref = e.target.closest('.suggestion');
+      const ref = e.target.closest(".suggestion");
       if (!ref) return;
-      this.#execute(ref.dataset.url);
+      this.#execute(ref.dataset.suggestion);
     };
 
     #renderSuggestions(suggestions, query) {
-      this.#suggestions.innerHTML = '';
+      this.#suggestions.innerHTML = "";
       const sliced = suggestions.slice(0, CONFIG.suggestionLimit);
-      const template = document.getElementById('suggestion-template');
+      const template = document.getElementById("suggestion-template");
 
       for (const [index, suggestion] of sliced.entries()) {
         const clone = template.content.cloneNode(true);
-        const ref = clone.querySelector('.suggestion');
+        const ref = clone.querySelector(".suggestion");
         ref.dataset.index = index;
-        ref.dataset.url = suggestion.url;
-        ref.innerText = suggestion.name ? suggestion.name : suggestion;
+        ref.dataset.suggestion = suggestion;
+        const escapedQuery = Search.#escapeRegexCharacters(query);
+        const matched = suggestion.match(new RegExp(escapedQuery, "i"));
+
+        if (matched) {
+          const template = document.getElementById("match-template");
+          const clone = template.content.cloneNode(true);
+          const matchRef = clone.querySelector(".match");
+          const pre = suggestion.slice(0, matched.index);
+          const post = suggestion.slice(matched.index + matched[0].length);
+          matchRef.innerText = matched[0];
+          matchRef.insertAdjacentHTML("beforebegin", pre);
+          matchRef.insertAdjacentHTML("afterend", post);
+          ref.append(clone);
+        } else {
+          ref.innerText = suggestion;
+        }
+
         this.#suggestions.append(clone);
       }
     }
   }
 
-  customElements.define('search-component', Search);
+  customElements.define("search-component", Search);
 </script>
 
 <style>
