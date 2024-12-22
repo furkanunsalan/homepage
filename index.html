@@ -41,6 +41,13 @@
   const COMMANDS = new Map([
     // --- COMMANDS NOT SHOWN IN THE GRID ---
     [
+      "google",
+      {
+        searchTemplate: "/search?q={}",
+        url: "https://www.google.com"
+      }
+    ],
+    [
       "3d",
       {
         url: "https://thingiverse.com",
@@ -55,13 +62,6 @@
     ["Makerworld", {url: "https://makerworld.com/en"}],
     ["Thangs", {url: "https://thangs.com/"}],
     [
-      "dt",
-      {
-        searchTemplate: "/translator#en/tr/",
-        url: "https://www.deepl.com/translator/en"
-      }
-    ],
-    [
       "gt",
       {
         searchTemplate: "?sl=en&tl=tr&text={}&op=translate",
@@ -69,10 +69,38 @@
       }
     ],
     [
-      "t-g", 
+      "t-ge", 
       { 
         url: "https://www.deepl.com/translator" ,
         searchTemplate: "#de/en/{}"
+      }
+    ],
+    [
+      "t-eg", 
+      { 
+        url: "https://www.deepl.com/translator" ,
+        searchTemplate: "#en/de/{}"
+      }
+    ],
+    [
+      "t-gt", 
+      { 
+        url: "https://www.deepl.com/translator" ,
+        searchTemplate: "#de/tr/{}"
+      }
+    ],
+    [
+      "t-tg", 
+      { 
+        url: "https://www.deepl.com/translator" ,
+        searchTemplate: "#tr/de/{}"
+      }
+    ],
+    [
+      "t-te", 
+      { 
+        url: "https://www.deepl.com/translator" ,
+        searchTemplate: "#tr/en/{}"
       }
     ],
     ["gr", 
@@ -90,7 +118,7 @@
       "ai", 
       {
         name: "Duck AI", 
-        url: "https://duck.ai"
+        url: "https://duck.ai",
         // name: "ChatGPT", 
         // url: "https://chatgpt.com/",
         // searchTemplate: "?model=gpt-4&q={}"
@@ -140,9 +168,6 @@
     ["g", 
      { 
        name: "GitHub", url: "https://github.com/furkanunsalan",
-       suggestions: [
-          "https://gitea.omerduran.dev"
-        ],
      }
     ],
     [
@@ -151,19 +176,19 @@
         name: "Haliç",
         url: "https://obs.halic.edu.tr/oibs/std/login.aspx",
         suggestions: [
-          "WWW",
+          "www",
           "OBS",
           "X",
           "@edu",
-          "VM",
+          "vm",
         ],
       },
     ],
-    ["WWW", {url: "https://halic.edu.tr/tr"}],
-    ["OBS", {url: "https://obs.halic.edu.tr/oibs/std/login.aspx"}],
-    ["X", {url: "https://huzem.halic.edu.tr/login"}],
+    ["www", {url: "https://halic.edu.tr/tr"}],
+    ["obs", {url: "https://obs.halic.edu.tr/oibs/std/login.aspx"}],
+    ["x", {url: "https://huzem.halic.edu.tr/login"}],
     ["@edu", {url: "https://outlook.office.com/mail/"}],
-    ["VM", {url: "https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html"}],
+    ["vm", {url: "https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html"}],
     [
       "u",
       { name: "Udemy", url: "https://www.udemy.com/home/my-courses/learning/" },
@@ -179,16 +204,16 @@
       {
         name: "Programming",
         suggestions: [
-          "Leetcode",
-          "NeetCode",
-          "NeetCodeYT",
+          "roadmap.sh",
+          "leetcode",
+          "neetcode-yt",
         ],
-        url: "https://leetcode.com/problemset/",
+        url: "https://roadmap.sh/",
       },
     ],
-    ["Leetcode", {url: "https://leetcode.com/problemset/"}],
-    ["NeetCode", {url: "https://neetcode.io/practice"}],
-    ["NeetCodeYT", {url: "https://www.youtube.com/@NeetCodeIO/videos"}],
+    ["roadmap.sh", {url: "https://roadmap.sh/"}],
+    ["leetcode", {url: "https://leetcode.com/problemset/"}],
+    ["neetcode-yt", {url: "https://www.youtube.com/@NeetCodeIO/videos"}],
     [
       "r",
       {
@@ -209,19 +234,19 @@
         url: "https://www.deepl.com/translator" ,
         searchTemplate: "#en/tr/{}",
         suggestions: [
-          "t-g"
+          "t-ge", "t-eg", "t-gt", "t-tg", "t-te"
         ],
       }
     ],
     ["v", { name: "Vercel", url: "https://vercel.com/dashboard" }],
-    [
-      "y",
-      {
-        name: "YouTube",
-        searchTemplate: "/results?search_query={}",
-        url: "https://youtube.com",
-      },
-    ],
+    // [
+    //   "y",
+    //   {
+    //     name: "YouTube",
+    //     searchTemplate: "/results?search_query={}",
+    //     url: "https://youtube.com",
+    //   },
+    // ],
     [
       "0",
       {
