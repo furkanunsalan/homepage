@@ -68,6 +68,13 @@
         url: "https://translate.google.com/"
       }
     ],
+    [
+      "t-g", 
+      { 
+        url: "https://www.deepl.com/translator" ,
+        searchTemplate: "#de/en/{}"
+      }
+    ],
     ["gr", 
      { 
        url: "https://github.com/furkanunsalan?tab=repositories"
@@ -78,19 +85,6 @@
        url: "https://github.com/furkanunsalan?tab=stars"
      }
     ],
-    [
-      "r",
-      {
-        searchTemplate: "/search/?q={}&type=link",
-        suggestions: [
-          "r/r/selfhosted",
-          "r/r/dataisbeautiful",
-          "r/r/macsetups",
-          "r/r/leetcode",
-        ],
-        url: "https://reddit.com",
-      },
-    ],
     // -------------------------------------
     [
       "ai", 
@@ -100,8 +94,14 @@
         // name: "ChatGPT", 
         // url: "https://chatgpt.com/",
         // searchTemplate: "?model=gpt-4&q={}"
+        suggestions: [
+          "ChatGPT",
+          "Claude"
+        ],
       }
     ],
+    ["ChatGPT", {url: "https://chatgpt.com/"}],
+    ["Claude", {url: "https://claude.ai/new"}],
     [
       "b",
       {
@@ -110,10 +110,24 @@
       },
     ],
     [
+      "bs",
+      {
+        name: "Bluesky",
+        url: "https://bsky.app/",
+      },
+    ],
+    [
+      "c",
+      {
+        name: "Cloud Drive",
+        url: "https://mega.nz/fm/mVoh3ATA",
+      },
+    ],
+    [
       "d",
       {
-        name: "Drive",
-        url: "https://mega.nz/fm/mVoh3ATA",
+        name: "Duolingo",
+        url: "https://duolingo.com",
       },
     ],
     [
@@ -158,17 +172,6 @@
       "k",
       { name: "UptimeKuma", url: "https://dashboard.uptimerobot.com/monitors" },
     ],
-    [
-      "l",
-      {
-        name: "Language",
-        url: "https://duolingo.com",
-        suggestions: [
-          "https://duolingo.com",
-          "https://eu.rosettastone.com/lp/ebsco/?custid=s8406812",
-        ],
-      },
-    ],
     ["m", { name: "Medium", url:"https://medium.com"}],
     ["s", { name: "Server", url: "/server" }],
     [
@@ -187,23 +190,27 @@
     ["NeetCode", {url: "https://neetcode.io/practice"}],
     ["NeetCodeYT", {url: "https://www.youtube.com/@NeetCodeIO/videos"}],
     [
-      "ro",
+      "r",
       {
-        name: "Roadmap",
+        name: "Reddit",
+        searchTemplate: "/search/?q={}&type=link",
         suggestions: [
-          "C++",
-          "React Native",
+          "r/r/selfhosted",
+          "r/r/dataisbeautiful",
+          "r/r/macsetups",
+          "r/r/leetcode",
         ],
-        url: "https://roadmap.sh",
+        url: "https://reddit.com",
       },
     ],
-    ["C++", {url: "https://roadmap.sh/cpp"}],
-    ["React Native", {url: "https://roadmap.sh/react-native"}],
     [
       "t", 
       { 
         url: "https://www.deepl.com/translator" ,
-        searchTemplate: "#en/tr/{}"
+        searchTemplate: "#en/tr/{}",
+        suggestions: [
+          "t-g"
+        ],
       }
     ],
     ["v", { name: "Vercel", url: "https://vercel.com/dashboard" }],
