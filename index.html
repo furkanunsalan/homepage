@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <meta charset="utf-8" />
 <meta name="color-scheme" content="dark light" />
 <meta name="robots" content="noindex" />
@@ -7,15 +7,34 @@
 <link rel="icon" type="image/png" href="tilde-logo.png?v=1234" />
 
 <style>
+  @font-face {
+    font-family: "SpaceGrotesk";
+
+    font-style: normal;
+
+    font-weight: normal;
+
+    src: url("./fonts/SpaceGrotesk-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "SpaceGrotesk";
+
+    font-style: normal;
+
+    font-weight: bold;
+
+    src: url("./fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+  }
   :root {
-    --border-radius: 1rem;
+    --border-radius: 0.5rem;
     --color-background: #111;
     --color-text-subtle: #888;
-    --color-text: #eee;
-    --font-family: -apple-system, Helvetica, sans-serif;
+    --color-text: #ccc;
+    --font-family: SpaceGrotesk, -apple-system, Helvetica, sans-serif;
     --font-size: clamp(16px, 1.6vw, 18px);
-    --font-weight-bold: 700;
-    --font-weight-normal: 400;
+    --font-weight-bold: bold;
+    --font-weight-normal: normal;
     --space: 1rem;
     --transition-speed: 200ms;
   }
@@ -44,111 +63,117 @@
       "google",
       {
         searchTemplate: "/search?q={}",
-        url: "https://www.google.com"
-      }
+        url: "https://www.google.com",
+      },
     ],
     [
       "3d",
       {
         url: "https://thingiverse.com",
-        suggestions: [
-          "Thingiverse",
-          "Makerworld",
-          "Thangs",
-        ],
+        suggestions: ["Thingiverse", "Makerworld", "Thangs"],
       },
     ],
-    ["Thingiverse", {url: "https://thingiverse.com"}],
-    ["Makerworld", {url: "https://makerworld.com/en"}],
-    ["Thangs", {url: "https://thangs.com/"}],
+    ["Thingiverse", { url: "https://thingiverse.com" }],
+    ["Makerworld", { url: "https://makerworld.com/en" }],
+    ["Thangs", { url: "https://thangs.com/" }],
     [
       "gt",
       {
         searchTemplate: "?sl=en&tl=tr&text={}&op=translate",
-        url: "https://translate.google.com/"
-      }
+        url: "https://translate.google.com/",
+      },
     ],
     [
-      "t-ge", 
-      { 
-        url: "https://www.deepl.com/translator" ,
-        searchTemplate: "#de/en/{}"
-      }
+      "t-ge",
+      {
+        url: "https://www.deepl.com/translator",
+        searchTemplate: "#de/en/{}",
+      },
     ],
     [
-      "t-eg", 
-      { 
-        url: "https://www.deepl.com/translator" ,
-        searchTemplate: "#en/de/{}"
-      }
+      "t-eg",
+      {
+        url: "https://www.deepl.com/translator",
+        searchTemplate: "#en/de/{}",
+      },
     ],
     [
-      "t-gt", 
-      { 
-        url: "https://www.deepl.com/translator" ,
-        searchTemplate: "#de/tr/{}"
-      }
+      "t-gt",
+      {
+        url: "https://www.deepl.com/translator",
+        searchTemplate: "#de/tr/{}",
+      },
     ],
     [
-      "t-tg", 
-      { 
-        url: "https://www.deepl.com/translator" ,
-        searchTemplate: "#tr/de/{}"
-      }
+      "t-tg",
+      {
+        url: "https://www.deepl.com/translator",
+        searchTemplate: "#tr/de/{}",
+      },
     ],
     [
-      "t-te", 
-      { 
-        url: "https://www.deepl.com/translator" ,
-        searchTemplate: "#tr/en/{}"
-      }
+      "t-te",
+      {
+        url: "https://www.deepl.com/translator",
+        searchTemplate: "#tr/en/{}",
+      },
     ],
     [
-       "y",
-       {
-         searchTemplate: "/results?search_query={}",
-         url: "https://youtube.com",
-       },
+      "y",
+      {
+        searchTemplate: "/results?search_query={}",
+        url: "https://youtube.com",
+      },
     ],
-    ["gr", 
-     { 
-       url: "https://github.com/furkanunsalan?tab=repositories"
-     }
+    [
+      "gpt",
+      {
+        url: "https://chatgpt.com/",
+        searchTemplate: "?model=gpt-4&q={}",
+      },
     ],
-    ["gs", 
-     { 
-       url: "https://github.com/furkanunsalan?tab=stars"
-     }
+    [
+      "gr",
+      {
+        url: "https://github.com/furkanunsalan?tab=repositories",
+      },
+    ],
+    [
+      "gs",
+      {
+        url: "https://github.com/furkanunsalan?tab=stars",
+      },
+    ],
+    [
+      "re",
+      {
+        searchTemplate: "/search/?q={}&type=link",
+        suggestions: [
+          "r/r/selfhosted",
+          "r/r/dataisbeautiful",
+          "r/r/macsetups",
+          "r/r/leetcode",
+        ],
+        url: "https://reddit.com",
+      },
     ],
     // -------------------------------------
     [
-      "ai", 
+      "a",
       {
-        name: "Duck AI", 
+        name: "Duck AI",
         url: "https://duck.ai",
-        // name: "ChatGPT", 
+        // name: "ChatGPT",
         // url: "https://chatgpt.com/",
         // searchTemplate: "?model=gpt-4&q={}"
-        suggestions: [
-          "ChatGPT",
-          "Claude"
-        ],
-      }
+        suggestions: ["ChatGPT", "Claude"],
+      },
     ],
-    ["ChatGPT", {url: "https://chatgpt.com/"}],
-    ["Claude", {url: "https://claude.ai/new"}],
     [
       "b",
       {
         name: "Bookmarks",
         url: "https://app.raindrop.io/my/0",
-      },
-    ],
-    [
-      "bs",
-      {
-        name: "Bluesky",
-        url: "https://bsky.app/",
       },
     ],
     [
@@ -172,78 +197,41 @@
         url: "https://www.figma.com/files/team/1014207282173193530/recents-and-sharing/recently-viewed?fuid=1014207275888563106",
       },
     ],
-    ["g", 
-     { 
-       name: "GitHub", url: "https://github.com/furkanunsalan",
-     }
+    [
+      "g",
+      {
+        name: "GitHub",
+        url: "https://github.com/furkanunsalan",
+      },
     ],
     [
       "h",
       {
         name: "Haliç",
         url: "https://obs.halic.edu.tr/oibs/std/login.aspx",
-        suggestions: [
-          "www",
-          "OBS",
-          "X",
-          "@edu",
-          "vm",
-        ],
+        suggestions: ["www", "OBS", "X", "@edu", "vm"],
       },
     ],
-    ["www", {url: "https://halic.edu.tr/tr"}],
-    ["OBS", {url: "https://obs.halic.edu.tr/oibs/std/login.aspx"}],
-    ["X", {url: "https://huzem.halic.edu.tr/login"}],
-    ["@edu", {url: "https://outlook.office.com/mail/"}],
-    ["vm", {url: "https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html"}],
+    ["www", { url: "https://halic.edu.tr/tr" }],
+    ["OBS", { url: "https://obs.halic.edu.tr/oibs/std/login.aspx" }],
+    ["X", { url: "https://huzem.halic.edu.tr/login" }],
+    ["@edu", { url: "https://outlook.office.com/mail/" }],
+    ["vm", { url: "https://vdi.halic.edu.tr/logon/LogonPoint/tmindex.html" }],
     [
       "u",
       { name: "Udemy", url: "https://www.udemy.com/home/my-courses/learning/" },
     ],
+    ["m", { name: "Medium", url: "https://medium.com" }],
+    ["s", { url: "/server" }],
+    ["r", { name: "Reading", url: "https://1000kitap.com/furkanunsalan", suggestions: ["Literal"] }],
+    ["Literal", { url: "https://literal.club" }],
     [
-      "k",
-      { name: "UptimeKuma", url: "https://dashboard.uptimerobot.com/monitors" },
-    ],
-    ["m", { name: "Medium", url:"https://medium.com"}],
-    ["s", { name: "Server", url: "/server" }],
-    [
-      "p",
+      "t",
       {
-        name: "Programming",
-        suggestions: [
-          "roadmap.sh",
-          "leetcode",
-          "neetcode-yt",
-        ],
-        url: "https://roadmap.sh/",
-      },
-    ],
-    ["roadmap.sh", {url: "https://roadmap.sh/"}],
-    ["leetcode", {url: "https://leetcode.com/problemset/"}],
-    ["neetcode-yt", {url: "https://www.youtube.com/@NeetCodeIO/videos"}],
-    [
-      "r",
-      {
-        name: "Reddit",
-        searchTemplate: "/search/?q={}&type=link",
-        suggestions: [
-          "r/r/selfhosted",
-          "r/r/dataisbeautiful",
-          "r/r/macsetups",
-          "r/r/leetcode",
-        ],
-        url: "https://reddit.com",
-      },
-    ],
-    [
-      "t", 
-      { 
-        url: "https://www.deepl.com/translator" ,
+        url: "https://www.deepl.com/translator",
         searchTemplate: "#en/tr/{}",
-        suggestions: [
-          "t-ge", "t-eg", "t-gt", "t-tg", "t-te"
-        ],
-      }
+        suggestions: ["t-ge", "t-eg", "t-gt", "t-tg", "t-te"],
+      },
     ],
     ["v", { name: "Vercel", url: "https://vercel.com/dashboard" }],
     [
@@ -638,7 +626,7 @@
         suggestions = suggestions.concat(
           oq.splitBy
             ? res.map((search) => `${oq.key}${oq.splitBy}${search}`)
-            : res,
+            : res
         );
       }
 

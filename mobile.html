@@ -7,15 +7,34 @@
 <link rel="icon" type="image/png" href="tilde_icon.png?v=1234" />
 
 <style>
+  @font-face {
+    font-family: "SpaceGrotesk";
+
+    font-style: normal;
+
+    font-weight: normal;
+
+    src: url("./fonts/SpaceGrotesk-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "SpaceGrotesk";
+
+    font-style: normal;
+
+    font-weight: bold;
+
+    src: url("./fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+  }
   :root {
-    --border-radius: 1rem;
+    --border-radius: 0.5rem;
     --color-background: #111;
     --color-text-subtle: #888;
-    --color-text: #eee;
-    --font-family: -apple-system, Helvetica, sans-serif;
+    --color-text: #ccc;
+    --font-family: SpaceGrotesk, -apple-system, Helvetica, sans-serif;
     --font-size: clamp(16px, 1.6vw, 18px);
-    --font-weight-bold: 700;
-    --font-weight-normal: 400;
+    --font-weight-bold: bold;
+    --font-weight-normal: normal;
     --space: 1rem;
     --transition-speed: 200ms;
   }
