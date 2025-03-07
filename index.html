@@ -7,35 +7,25 @@
 <link rel="icon" type="image/png" href="tilde-logo.png?v=1234" />
 
 <style>
-  @font-face {
-    font-family: "SpaceGrotesk";
-
-    font-style: normal;
-
-    font-weight: normal;
-
-    src: url("./fonts/SpaceGrotesk-Regular.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-family: "SpaceGrotesk";
-
-    font-style: normal;
-
-    font-weight: bold;
-
-    src: url("./fonts/SpaceGrotesk-Bold.woff2") format("woff2");
-  }
   :root {
-    --border-radius: 0.5rem;
+    --border-radius: 1rem;
+
     --color-background: #111;
+
     --color-text-subtle: #888;
-    --color-text: #ccc;
-    --font-family: SpaceGrotesk, -apple-system, Helvetica, sans-serif;
+
+    --color-text: #eee;
+
+    --font-family: -apple-system, Helvetica, sans-serif;
+
     --font-size: clamp(16px, 1.6vw, 18px);
-    --font-weight-bold: bold;
-    --font-weight-normal: normal;
+
+    --font-weight-bold: 700;
+
+    --font-weight-normal: 400;
+
     --space: 1rem;
+
     --transition-speed: 200ms;
   }
 
@@ -223,7 +213,14 @@
     ],
     ["m", { name: "Medium", url: "https://medium.com" }],
     ["s", { url: "/server" }],
-    ["r", { name: "Reading", url: "https://1000kitap.com/furkanunsalan", suggestions: ["Literal"] }],
+    [
+      "r",
+      {
+        name: "Reading",
+        url: "https://1000kitap.com/furkanunsalan",
+        suggestions: ["Literal"],
+      },
+    ],
     ["Literal", { url: "https://literal.club" }],
     [
       "t",

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <meta charset="utf-8" />
 <meta name="color-scheme" content="dark light" />
 <meta name="robots" content="noindex" />
@@ -7,35 +7,25 @@
 <link rel="icon" type="image/png" href="tilde_icon.png?v=1234" />
 
 <style>
-  @font-face {
-    font-family: "SpaceGrotesk";
-
-    font-style: normal;
-
-    font-weight: normal;
-
-    src: url("./fonts/SpaceGrotesk-Regular.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-family: "SpaceGrotesk";
-
-    font-style: normal;
-
-    font-weight: bold;
-
-    src: url("./fonts/SpaceGrotesk-Bold.woff2") format("woff2");
-  }
   :root {
-    --border-radius: 0.5rem;
+    --border-radius: 1rem;
+
     --color-background: #111;
+
     --color-text-subtle: #888;
-    --color-text: #ccc;
-    --font-family: SpaceGrotesk, -apple-system, Helvetica, sans-serif;
+
+    --color-text: #eee;
+
+    --font-family: -apple-system, Helvetica, sans-serif;
+
     --font-size: clamp(16px, 1.6vw, 18px);
-    --font-weight-bold: bold;
-    --font-weight-normal: normal;
+
+    --font-weight-bold: 700;
+
+    --font-weight-normal: 400;
+
     --space: 1rem;
+
     --transition-speed: 200ms;
   }
 
@@ -87,18 +77,18 @@
       },
     ],
     [
-      "t", 
-      { 
-        name: "Travel", 
-        url: "https://map.furkanunsalan.dev" 
-      }
+      "t",
+      {
+        name: "Travel",
+        url: "https://map.furkanunsalan.dev",
+      },
     ],
     [
-      "v", 
-      { 
-        name: "Vercel", 
-        url: "https://vercel.com/dashboard" 
-      }
+      "v",
+      {
+        name: "Vercel",
+        url: "https://vercel.com/dashboard",
+      },
     ],
   ]);
 </script>
@@ -484,7 +474,7 @@
         suggestions = suggestions.concat(
           oq.splitBy
             ? res.map((search) => `${oq.key}${oq.splitBy}${search}`)
-            : res,
+            : res
         );
       }
 
